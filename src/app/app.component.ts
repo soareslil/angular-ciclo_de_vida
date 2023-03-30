@@ -27,6 +27,10 @@ export class AppComponent implements OnInit, DoCheck{
     this.listaDeCompra.splice(index,1);
   }
 
+  limparLista(){
+    this.listaDeCompra = [];
+  }
+
   ngDoCheck() {
     console.log('do-check-chamado');
 
