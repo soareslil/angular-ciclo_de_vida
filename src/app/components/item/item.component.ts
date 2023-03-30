@@ -22,7 +22,7 @@ export class ItemComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(){ }
 
   editarItem(){
-    this.emitindoIdParaDeletar.emit(this.item);
+    this.emitindoItemParaEditar.emit(this.item);
   }
 
   checarItem() {
