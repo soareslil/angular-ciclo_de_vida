@@ -1,6 +1,6 @@
-import { ListaDeCompraService } from './service/lista-de-compra.service';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
-import { Component, Input, OnInit } from '@angular/core';
+import { ListaDeCompraService } from './service/lista-de-compra.service';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   title = 'app-lista-de-compras';
+  listaDeCompra! : Array<Item>;
+  itemParaSerEditado! : Item;
 
-  listaDeCompra! : Array<Item>
-
-  constructor(private listaService: ListaDeCompraService) {
-  }
-
+  constructor(private listaService: ListaDeCompraService) { }
+  
   ngOnInit(): void {
-    this.listaDeCompra = this.listaService.getListaDeCompra();
-    console.log(this.listaDeCompra);
-
+   this.listaDeCompra = this.listaService.getListaDeCompra();
   }
 
+  editarItem(item: Item){
+    this.itemParaSerEditado = item;
+  }
 }
